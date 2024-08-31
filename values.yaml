@@ -1,0 +1,65 @@
+cluster:
+  name: iquant-k8s
+externalServices:
+  prometheus:
+    host: https://prometheus-prod-36-prod-us-west-0.grafana.net
+    basicAuth:
+      username: "1748787"
+      password: iquant-k8s-token
+  loki:
+    host: https://logs-prod-021.grafana.net
+    basicAuth:
+      username: "974115"
+      password: iquant-k8s-token
+  tempo:
+    host: https://tempo-prod-15-prod-us-west-0.grafana.net:443
+    basicAuth:
+      username: "968430"
+      password: iquant-k8s-token
+metrics:
+  enabled: true
+  alloy:
+    metricsTuning:
+      useIntegrationAllowList: true
+  cost:
+    enabled: true
+  kepler:
+    enabled: true
+  node-exporter:
+    enabled: true
+logs:
+  enabled: true
+  pod_logs:
+    enabled: true
+  cluster_events:
+    enabled: true
+traces:
+  enabled: true
+receivers:
+  grpc:
+    enabled: true
+  http:
+    enabled: true
+  zipkin:
+    enabled: true
+  grafanaCloudMetrics:
+    enabled: false
+opencost:
+  enabled: true
+  opencost:
+    exporter:
+      defaultClusterId: iquant-k8s
+    prometheus:
+      external:
+        url: https://prometheus-prod-36-prod-us-west-0.grafana.net/api/prom
+kube-state-metrics:
+  enabled: true
+prometheus-node-exporter:
+  enabled: true
+prometheus-operator-crds:
+  enabled: true
+kepler:
+  enabled: true
+alloy: {}
+alloy-events: {}
+alloy-logs: {}
